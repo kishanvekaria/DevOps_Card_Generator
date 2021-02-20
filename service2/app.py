@@ -1,13 +1,13 @@
-from flask import Flask, render_template, Response, request
+from flask import Flask, render_template, Response, request, jsonify
 import requests
 import random
 app = Flask(__name__)
 
 @app.route('/card_number', methods= ['GET'])
 def card_number():
-    card_faces = ["Ace", "King", "Queen", "Jack"]
-    first_face= random.choices(card_faces)
-    second_face= random.choices(card_faces)
+    faces = ["Ace", "King", "Queen", "Jack"]
+    first_face= random.choices(faces)
+    second_face= random.choices(faces)
     return Response(first_face, mimetype="text/plain")
 
 @app.route('/suit', methods=['POST'])
