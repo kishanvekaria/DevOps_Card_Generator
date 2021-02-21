@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 #suit =requests.post("http://0.0.0.0:5001/suit", data=card_number.text)
 
-@app.route('/card_suit', methods= ['GET','POST'])
+@app.route('/card_suit', methods= ['GET'])
 def card_suit():
     suits = ["Spades", "Diamonds", "Hearts", "Clubs"]
     first_suit= random.choices(suits)
@@ -20,8 +20,8 @@ def card_suit():
         "suit1": first_suit,
         "suit2": second_suit
     }
-    res= json.dumps(diction)
-    return res
+    res_suit= json.dumps(diction)
+    return res_suit
 
 if __name__=="__main__":
     app.run(debug=True, host='0.0.0.0', port=5002)
