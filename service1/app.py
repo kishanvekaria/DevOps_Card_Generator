@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import requests
-import json
+#import json
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
@@ -14,9 +15,6 @@ def index():
     
     
     return render_template('index.html', card_number=card_number.text, res=res.text, firstcardis=firstcardis.text) #,suit=suit.text
-
-
-
 
 
 if __name__=="__main__":

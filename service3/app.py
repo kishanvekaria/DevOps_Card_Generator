@@ -1,7 +1,7 @@
 from flask import Flask, render_template, Response, request, jsonify, make_response
 import requests
 import random
-import json
+#import json
 app = Flask(__name__)
 
 @app.route('/card_suit', methods= ['GET'])
@@ -25,7 +25,6 @@ def card_suit():
 #    }
 #    res_suit= json.dumps(diction)
 #    return res_suit
-
 
 
 if __name__=="__main__":

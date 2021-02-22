@@ -1,8 +1,17 @@
 from flask import Flask, render_template, Response, request
 import requests
-import json
+#import json
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+#app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://qatraining:password@104.196.239.146/flaskdb"
+#app.config['SECRET_KEY'] = 'SECRET_KEY'
+#db = SQLAlchemy(app)
+
+#class Storage(db.Model):
+#    id = db.Column(db.Integer, primary_key =True)
+#    card_string = db.Column(db.String(30))
 
 @app.route('/cardis', methods= ['GET', 'POST'])
 def cardis():
@@ -11,8 +20,10 @@ def cardis():
     stringcardnum= (card_number.text)
     stringcardsuit= (card_suit.text)
     firstcardis= stringcardnum + " of " + stringcardsuit
+    #new_card= Storage(card_string = firstcardis)
+    #db.session.add(new_card)
+    #db.session.commit()
     return Response(firstcardis, mimetype="text/plain")
-
 
 
 
