@@ -8,9 +8,11 @@ services:
       published: 5000
       protocol: tcp
     depends_on: 
-    - "service2", "service3" "service4"
+    - service2 
+    - service3 
+    - service4
 
-    service2:
+  service2:
     container_name: service2
     build: ./service2
     ports:
@@ -18,7 +20,7 @@ services:
       published: 5001
       protocol: tcp
 
-    service3:
+  service3:
     container_name: service3
     build: ./service3
     ports:
@@ -26,7 +28,7 @@ services:
       published: 5002
       protocol: tcp
 
-    service4:
+  service4:
     container_name: service4
     build: ./service4
     ports:
@@ -34,4 +36,5 @@ services:
       published: 5003
       protocol: tcp
     depends_on: 
-    - "service2", "service3"
+    - service2
+    - service3

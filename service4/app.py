@@ -15,8 +15,8 @@ app = Flask(__name__)
 
 @app.route('/cardis', methods= ['GET', 'POST'])
 def cardis():
-    card_number= requests.get("http://0.0.0.0:5001/card_number")
-    card_suit = requests.get("http://0.0.0.0:5002/card_suit")
+    card_number= requests.get("http://service2:5001/card_number")
+    card_suit = requests.get("http://service3:5002/card_suit")
     stringcardnum= (card_number.text)
     stringcardsuit= (card_suit.text)
     firstcardis= stringcardnum + " of " + stringcardsuit
