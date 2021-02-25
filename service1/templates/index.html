@@ -5,10 +5,11 @@
     <title>Home</title>
 </head>
 <body>
-<h3>test text data direct from service 2, face: {{card_number}} </h3>
-<h3>test jason data direct from service 3, suit: {{res}}</h3>
 
-<h1>From Service 4: Your first card is the {{firstcardis}}</h1>
+<h1>Your card generated is the {{firstcardis}}</h1>
 
+{% for col in cardquery %}
+<h2>{{col.card_string}}</h2>
+{% endfor %}
 </body>
 </html>
