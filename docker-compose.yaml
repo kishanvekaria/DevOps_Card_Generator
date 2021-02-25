@@ -5,7 +5,6 @@ services:
     build: ./service1
     ports:
     - target: 5000
-      published: 5000
       protocol: tcp
     depends_on: 
     - service2 
@@ -17,7 +16,6 @@ services:
     build: ./service2
     ports:
     - target: 5001
-      published: 5001
       protocol: tcp
 
   service3:
@@ -25,7 +23,6 @@ services:
     build: ./service3
     ports:
     - target: 5002
-      published: 5002
       protocol: tcp
 
   service4:
@@ -33,8 +30,20 @@ services:
     build: ./service4
     ports:
     - target: 5003
-      published: 5003
       protocol: tcp
     depends_on: 
     - service2
     - service3
+
+  nginx:
+    image: nginx:latest
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
+    depends_on: 
+    - service1 
