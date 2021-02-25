@@ -7,7 +7,7 @@ import os
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:kishan@35.247.51.224/carddatabase"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://@35.247.51.224/carddatabase"
 app.config['SECRET_KEY'] = 'SECRET_KEY'
 db = SQLAlchemy(app)
 
