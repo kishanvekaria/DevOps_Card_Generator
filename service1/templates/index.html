@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+<h1>Your card generated is the {{firstcardis}}</h1>
+
+{% for col in cardquery %}
+<h2>{{col.card_string}}</h2>
+{% endfor %}
+</body>
+</html>
