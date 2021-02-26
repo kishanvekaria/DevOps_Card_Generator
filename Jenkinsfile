@@ -20,6 +20,8 @@ pipeline {
         stage('Ansible') {
             steps {
                 sh "ansible-playbook -i inventory.yaml playbook.yaml"
+            }
+        }   
 
         stage('Build') {
             steps {
