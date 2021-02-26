@@ -7,21 +7,6 @@ pipeline {
                 sh "ls"
             }
         }
-        stage('Build') {
-            steps {
-                sh "docker-compose build"
-            }
-        }
-        stage('Push') {
-            steps {
-                sh "docker-compose push"
-            }
-        }
-        stage('Ansible') {
-            steps {
-                sh "ansible-playbook -i inventory.yaml playbook.yaml"
-            }
-        }   
 
         stage('Build') {
             steps {
