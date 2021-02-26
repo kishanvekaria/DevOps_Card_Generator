@@ -3,6 +3,9 @@ services:
   service1:
     image: kishanvekaria/service1
     build: ./service1
+    environment: 
+      DB_URI: ${DB_URI}
+      SEC_KEY: ${SEC_KEY}
     deploy:
       replicas: 2
     ports:

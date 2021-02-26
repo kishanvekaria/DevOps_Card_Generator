@@ -2,13 +2,13 @@ from flask import Flask, render_template
 import requests
 #import json
 from flask_sqlalchemy import SQLAlchemy
-import os
+from os import getenv
 
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:kishan@35.247.51.224/carddatabase"
-app.config['SECRET_KEY'] = 'SECRET_KEY'
+app.config['SQLALCHEMY_DATABASE_URI'] = getenv("DB_URI")
+app.config['SECRET_KEY'] = getenv("SEC_KEY")
 db = SQLAlchemy(app)
 
 
