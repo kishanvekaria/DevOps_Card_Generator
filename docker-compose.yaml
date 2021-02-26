@@ -1,42 +1,45 @@
 version: '3.7'
 services:
   service1:
-    container_name: service1
+    image: kishanvekaria/service1
     build: ./service1
+    deploy:
+      replicas: 2
     ports:
     - target: 5000
       protocol: tcp
-    depends_on: 
-    - service2 
-    - service3 
-    - service4
 
   service2:
-    container_name: service2
+    image: kishanvekaria/service2
     build: ./service2
+    deploy:
+      replicas: 2
     ports:
     - target: 5001
       protocol: tcp
 
   service3:
-    container_name: service3
+    image: kishanvekaria/service3
     build: ./service3
+    deploy:
+      replicas: 2
     ports:
     - target: 5002
       protocol: tcp
 
   service4:
-    container_name: service4
+    image: kishanvekaria/service4
     build: ./service4
+    deploy:
+      replicas: 2
     ports:
     - target: 5003
       protocol: tcp
-    depends_on: 
-    - service2
-    - service3
 
   nginx:
     image: nginx:latest
+    deploy:
+      replicas: 2
     ports:
     - target: 80
       published: 80
@@ -45,5 +48,3 @@ services:
     - type: bind
       source: ./nginx/nginx.conf
       target: /etc/nginx/nginx.conf
-    depends_on: 
-    - service1 
