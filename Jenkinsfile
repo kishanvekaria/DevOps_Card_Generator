@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DB_URI = credentials("DATABASE_URI")
+        DB_URI = credentials("DB_URI")
         SEC_KEY = credentials("SEC_KEY")
         DOCKER_CREDENTIALS = credentials("docker-hub-credentials")
     }
