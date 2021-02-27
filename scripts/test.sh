@@ -1,5 +1,7 @@
 #!/bin/bash
 pwd
+export DB_URI=${DB_URI} 
+export SEC_KEY=${SEC_KEY} 
 
 cd ./service1
 pip3 install -r requirements.txt
