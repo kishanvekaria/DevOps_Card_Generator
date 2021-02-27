@@ -6,33 +6,25 @@ pipeline {
         DOCKERHUB_LOGIN = credentials("DOCKERHUB_LOGIN")
     }
     stages {
-
-        stage('Test') {
-            steps {
-                sh "ls"
+        stage('Test'){
+            steps{
+                sh './scripts/test.sh'
             }
         }
-
-        stage('Build') {
-            steps {
-                sh "docker-compose build"
-
+        stage('Build and Push'){
+            steps{
+                sh './scripts/build.sh'
             }
         }
-        stage('Push') {
-            steps {
-                sh "docker-compose push"
+        stage('Ansible'){
+            steps{
+                sh './scripts/ansible.sh'
             }
         }
-        stage('Ansible') {
-            steps {
-                sh "ls"
+        stage('Deploy'){
+            steps{
+                sh './scripts/deploy.sh'
             }
-        }
-        stage('Deploy') {
-            steps {
-                sh "docker-compose pull && docker stack deploy --compose-file docker-compose.yaml cardgen"
-            }
-        }
+        }                   
     }
 }
