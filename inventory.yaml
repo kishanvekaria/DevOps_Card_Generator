@@ -2,13 +2,13 @@ all:
   children:
     docker:
       hosts:
-        35.233.157.85:
+        34.82.109.161:
     swarm_init:
       hosts:      
-        34.82.208.243:
+        35.233.174.240:
     join_swarm:
       hosts:
-        35.230.32.243:
+        35.233.157.85:
   vars:
     ansible_python_interpreter: /usr/bin/python3
     ansible_user: kishanvekaria123
