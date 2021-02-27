@@ -41,8 +41,6 @@ services:
 
   nginx:
     image: nginx:latest
-    deploy:
-      replicas: 2
     ports:
     - target: 80
       published: 80
