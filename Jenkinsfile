@@ -3,7 +3,7 @@ pipeline {
     environment {
         DB_URI = credentials("DB_URI")
         SEC_KEY = credentials("SEC_KEY")
-        DOCKER_CREDENTIALS = credentials("docker-hub-credentials")
+        DOCKERHUB_LOGIN = credentials("DOCKERHUB_LOGIN")
     }
     stages {
 
@@ -16,7 +16,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "docker-compose build"
-                
+
             }
         }
         stage('Push') {
