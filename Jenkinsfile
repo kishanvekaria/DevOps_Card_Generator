@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    environment {
+        DB_URI = credentials("DATABASE_URI")
+        SEC_KEY = credentials("SEC_KEY")
+        DOCKER_CREDENTIALS = credentials("docker-hub-credentials")
+    }
     stages {
 
         stage('Test') {
