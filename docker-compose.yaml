@@ -40,7 +40,9 @@ services:
       protocol: tcp
 
   nginx:
-    image: nginx:latest
+    image: kishanvekaria/nginx:latest
+    deploy:
+      replicas: 2
     ports:
     - target: 80
       published: 80
