@@ -40,7 +40,7 @@ services:
       protocol: tcp
 
   nginx:
-    image: kishanvekaria/nginx:latest
+    image: nginx:latest
     deploy:
       replicas: 2
     ports:
