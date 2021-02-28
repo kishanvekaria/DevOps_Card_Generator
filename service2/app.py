@@ -10,6 +10,13 @@ def card_number():
     second_face= random.choices(faces)
     return Response(first_face, mimetype="text/plain")
 
+@app.route('/card_number2', methods= ['GET'])
+def card_number2():
+    faces = ["Ace", "King", "Queen", "Jack"]
+    first_face= random.choices(faces)
+    second_face= random.choices(faces)
+    return Response(second_face, mimetype="text/plain")
+
 #@app.route('/card_face', methods= ['GET'])
 #def card_face():
 #    faces = ["Ace", "King", "Queen", "Jack"]
