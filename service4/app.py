@@ -10,10 +10,11 @@ app = Flask(__name__)
 def cardis():
     card_number= requests.get("http://service2:5001/card_number")
     card_suit = requests.get("http://service3:5002/card_suit")
-    stringcardnum= (card_number.text)
-    stringcardsuit= (card_suit.text)
-    firstcardis= stringcardnum + " of " + stringcardsuit
-    return Response(firstcardis, mimetype="text/plain")
+    card_number2= requests.get("http://service2:5001/card_number2")
+    card_suit2 = requests.get("http://service3:5002/card_suit2")
+    stringcards="1st Card: " (card_number.text) " of " (card_suit.text) "& 2nd Card:" (card_number2.text) " of " (card_suit2.text)
+
+    return Response(stringcards, mimetype="text/plain")
 
 
 
