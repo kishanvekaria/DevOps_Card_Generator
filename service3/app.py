@@ -12,7 +12,7 @@ def card_suit():
     return Response(first_suit, mimetype="text/plain")
 
 @app.route('/card_suit2', methods= ['GET'])
-def card_suit():
+def card_suit2():
     suits = ["Spades", "Diamonds", "Hearts", "Clubs"]
     first_suit= random.choices(suits)
     second_suit= random.choices(suits)
