@@ -1,6 +1,7 @@
 from flask import Flask, render_template, Response, request, jsonify, make_response
 import requests
 import random
+
 app = Flask(__name__)
 
 @app.route('/card_suit', methods= ['GET'])
