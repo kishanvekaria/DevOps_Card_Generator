@@ -1,11 +1,12 @@
 from flask import Flask, render_template, Response, request, jsonify, make_response
 import requests
 import random
+#import json
 app = Flask(__name__)
 
 @app.route('/card_suit', methods= ['GET'])
 def card_suit():
-    suits = ["Piques", "Carreaux", "Coeurs", "Trèfles"]
+    suits = ["Spades", "Diamonds", "Hearts", "Clubs"]
     first_suit= random.choices(suits)
     second_suit= random.choices(suits)
     return Response(first_suit, mimetype="text/plain")

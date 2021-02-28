@@ -11,7 +11,7 @@ def cardis():
     card_suit = requests.get("http://service3:5002/card_suit")
     stringcardnum= (card_number.text)
     stringcardsuit= (card_suit.text)
-    firstcardis= stringcardnum + " de " + stringcardsuit
+    firstcardis= stringcardnum + " of " + stringcardsuit
     return Response(firstcardis, mimetype="text/plain")
 
 

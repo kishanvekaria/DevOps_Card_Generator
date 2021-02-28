@@ -12,9 +12,9 @@ class TestBase(TestCase):
 class TestResponse(TestBase):
     def test_card_face_page(self):
         with patch("requests.get") as g:
-            g.return_value.text = "Roi"
+            g.return_value.text = "King"
             response = self.client.get(url_for("index"))
             self.assertEqual(response.status_code, 200)
-            self.assertIn(b'Roi', response.data)
+            self.assertIn(b'King', response.data)
 
         
