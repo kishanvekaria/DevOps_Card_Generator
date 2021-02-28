@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/card_number', methods= ['GET'])
 def card_number():
-    faces = ["As", "Roi", "Dame", "Valet"]
+    faces = ["Ace", "King", "Queen", "Jack"]
     first_face= random.choices(faces)
     second_face= random.choices(faces)
     return Response(first_face, mimetype="text/plain")

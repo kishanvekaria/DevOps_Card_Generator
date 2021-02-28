@@ -16,7 +16,7 @@ class TestResponse(TestBase):
 
     def test_card_face(self):
         with patch("requests.get") as g:
-            g.return_value.text = b"Roi"
+            g.return_value.text = b"King"
             response = self.client.get(url_for("card_number"))
-            response = b"Roi"
-            self.assertIn(b"Roi", response)
+            response = b"King"
+            self.assertIn(b"King", response)
