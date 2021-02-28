@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/card_suit', methods= ['GET'])
 def card_suit():
-    suits = ["Piques", "Carreaux", "Coers", "Trèfles"]
+    suits = ["Spades", "Diamonds", "Hearts", "Clubs"]
     first_suit= random.choices(suits)
     second_suit= random.choices(suits)
     return Response(first_suit, mimetype="text/plain")
