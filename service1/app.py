@@ -14,7 +14,7 @@ db = SQLAlchemy(app)
 
 class Storage(db.Model):
     id = db.Column(db.Integer, primary_key =True)
-    card_string = db.Column(db.String(60))
+    card_string = db.Column(db.String(100))
 
 db.drop_all()
 db.create_all()
