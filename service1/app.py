@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 import requests
-#import json
 from flask_sqlalchemy import SQLAlchemy
 from os import getenv
 
@@ -21,10 +20,7 @@ db.create_all()
 
 @app.route('/', methods= ['GET'])
 def index():
-    #card_number= requests.get("http://service2:5001/card_number")
-    #res = requests.get("http://service3:5002/card_suit")
-    #suit =requests.post("http://0.0.0.0:5001/suit", data=card_number.text)
-    #res = requests.get("http://0.0.0.0:5002/card_suit").json()
+
     firstcardis = requests.get("http://service4:5003/cardis")
     stringfirstcard= firstcardis.text
     new_card= Storage(card_string = stringfirstcard)
