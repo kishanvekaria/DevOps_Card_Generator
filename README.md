@@ -64,8 +64,24 @@ Below is a CI (Continuous Integration) pipeline diagram showing all the differen
 
 ![CI Pipeline](https://trello-attachments.s3.amazonaws.com/603cd4dc733be54ef8b4952d/603ce9bf9cf009775f96b512/818bcb6015f72c8aa4ef5252863cc92b/cipipeline.jpg)
 
-As you can see I used **GitHub** as a version control system. Trello (Kanban Board) to manage my project planning. **Visual Studio** IDE to write my code in **Python**. Pytest to test my coverage. **Jenkins** allows for automation to take place in that it has a web hook to my GitHub repository and has a script to test the code before building images and pushing them to **DockerHub**. Jenkins then using **Ansible** for configuration management then deploys the services. The services pass through a reverse proxy using 
+As you can see I used **GitHub** as a version control system. Trello (Kanban Board) to manage my project planning. 
+**Visual Studio** IDE to write my code in **Python** using Flask to build my API services
+Pytest to test my coverage. 
+**Jenkins** allows for automation to take place in that it has a web hook to my GitHub repository and has a script to test the code before building images and pushing them to **DockerHub**.
+Jenkins then using **Ansible** for configuration management then deploys the services.
+The services pass through a reverse proxy using Nginx.
 All the Virtual machine instances are being held on **Google Cloud Platform, GCP**. The shell being run on GCP is a **Linux/Unix** language through **Ubuntu 18.0**.
+
+### Jenkins Pipeline
+Within Jenkins stage view, the progress of each stage can be monitored and an error is flagged up if something did not manage to execute.
+I split my stages into Test, Build and Push, Ansible and Deploying the services. As stated earlier, the entire process is automated with the use of a web-hook from Github.
+This detects any changes to the GitHub repository and causes Jenkins to rebuild the pipeline job. 
+
+![Jenkins stageview](https://trello-attachments.s3.amazonaws.com/603cd4dc733be54ef8b4952d/603d0b61ba9754549de42530/aa2ef2e30988467ef0bff61cb5c2310b/Jenkins_test.JPG)
+
+### Ansible
+I have used Ansible for configuration management within my project. This essentially means Ansible is responsible for installation of docker on both the swarm manager and swarm worker machines. It also initiates the Swarm Manager, create a join token passes this to the Worker Machine and tells the worker to join the swarm.
+Intergrating ansible with Jenkins allows for all of this to be automated. 
 
 ### Virtual Machine Architecture
 
@@ -97,7 +113,9 @@ This is my final Trello board:
 
 
 ## 4. Risk Assessment
-This is the risk assessment I have conducted for the project
+This is the risk assessment I have conducted for the project. 
+Including replicas of the containers has reduced the chance of servers crashing causing a failure in the running of all services.
+In addition including a load balancer means that the chance of traffic overload causing failure is also reduced.
 ![Risk Assessment](https://trello-attachments.s3.amazonaws.com/6006b837abee6877e9b3597f/6020355e91dfc2794a87e432/197c575103b08e6b80da596bf160311a/Risk_Assessment.JPG)
 
 ## 5. Testing
@@ -137,7 +155,6 @@ Here are screenshots of my app when running:
 ![frontend1](https://trello-attachments.s3.amazonaws.com/603cd4dc733be54ef8b4952d/603cff96d30dc34f01237750/1fd35f5296ed347fb89fa447373da363/frontend1.JPG)
 
 ![frontend2](https://trello-attachments.s3.amazonaws.com/603cd4dc733be54ef8b4952d/603cff96d30dc34f01237750/4f20c7aaafe9968b83b39f4ae0a48bb5/frontend2.JPG)
-
 
 
 ## 7. Evaluation   
