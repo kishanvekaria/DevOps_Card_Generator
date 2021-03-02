@@ -10,13 +10,13 @@ class TestBase(TestCase):
 
 class TestResponse(TestBase):
     def rand_face(self):
-        card_faces = [b"Ace", b"King", b"Queen", b"Jack"]
+        card_faces = [b"As", b"Roi", b"Dame", b"Valet"]
         response = self.client.get(url_for("card_number"))
         self.assertIn(response.data, card_faces)
 
     def test_card_face(self):
         with patch("requests.get") as g:
-            g.return_value.text = b"King"
+            g.return_value.text = b"Roi"
             response = self.client.get(url_for("card_number"))
-            response = b"King"
-            self.assertIn(b"King", response)
+            response = b"Roi"
+            self.assertIn(b"Roi", response)
